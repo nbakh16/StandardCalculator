@@ -17,7 +17,7 @@
             android:id="@+id/outputTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="0"
+            android:text=""
             android:textSize="80sp"
             android:textColor="@color/gray"
             android:background="@color/white"

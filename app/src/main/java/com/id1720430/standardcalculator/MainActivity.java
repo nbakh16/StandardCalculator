@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button0, button1, button2, button3, button4, button5, button6, button7, button8,
             button9, buttonPlus, buttonMinus, buttonMul, buttonDiv, buttonClear, buttonEqual;
 
-    private double num1, num2, answer;
+    private float num1, num2;
+    private Double answer;
     private char operator;
 
     @Override
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         String s = outputText.getText().toString();
 
         if (s.length() != 0) {
-            num1 = Double.parseDouble(s);
+            num1 = Float.parseFloat(s);
             outputText.setText("");
             Button button = (Button) view;
             String data = button.getText().toString();
@@ -108,40 +109,40 @@ public class MainActivity extends AppCompatActivity {
                 case "x":
                     operator = '*';
                     break;
-                case "/":
+                case "÷":
                     operator = '/';
                     break;
                 default:
                     break;
             }
         }
-
     }
 
     public void onClickEqual(View view) {
         String s = outputText.getText().toString();
 
         if (s.length() != 0) {
-            num2 = Double.parseDouble(s);
+            num2 = Float.parseFloat(s);
 
             switch (operator) {
                 case '+':
-                    answer = num1 + num2;
+                    answer = Double.valueOf(num1 + num2);
                     break;
                 case '-':
-                    answer = num1 - num2;
+                    answer = Double.valueOf(num1 - num2);
                     break;
                 case '*':
-                    answer = num1 * num2;
+                    answer = Double.valueOf(num1 * num2);
                     break;
-                case '÷':
-                    answer = num1 / num2;
+                case '/':
+                    answer = Double.valueOf(num1 / num2);
                     break;
                 default:
                     break;
             }
             s = String.valueOf(answer);
             outputText.setText(s);
+            operator='n';
         }
     }
 }
